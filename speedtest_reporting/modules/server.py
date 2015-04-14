@@ -1,7 +1,7 @@
 import psycopg2
 import sys
 import logging
-from configs import pg_config
+from config_file import pg_config
 
 reload(sys)
 

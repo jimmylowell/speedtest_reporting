@@ -3,17 +3,16 @@ from requests import session
 import datetime
 import sys
 import os
-import devices
 import psycopg2
 import logging
 import glob
 
-from configs import pg_config
-
-from lib import dates
+from config_file import pg_config
+from helpers import devices
+from helpers import dates
 from datetime import timedelta
 reload(sys)
-from lib.server import Server
+from modules.server import Server
 module_logger = logging.getLogger("pyspeed.SpeedtestSponsor")
 
 pg_host = pg_config.get('pg_host')

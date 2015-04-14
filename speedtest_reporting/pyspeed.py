@@ -1,31 +1,23 @@
 #!/usr/bin/python
-from lib.sponsor import SpeedtestSponsor
-from lib.parse import createServerTable
-from configs import sponsors
+from modules.sponsor import SpeedtestSponsor
+from config_file import sponsors
 
 from datetime import date, timedelta
 import logging
 
-today = date.today()
-logger = logging.getLogger("pyspeed")
+logger = logging.getLogger("speedtest_reporting")
 logger.setLevel(logging.DEBUG)
-fh = logging.FileHandler('./logs/' + str(today)+'.log')
+fh = logging.FileHandler('./logs/' + str(date.today())+'.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 fh.setFormatter(formatter)
 
 yesterday = date.today() - timedelta(1)
-print date.today()
-print yesterday
 str_yesterday = str(yesterday)
 
 # add handler to logger object
 logger.addHandler(fh)
 logger.info("Program started")
 print "Starting"
-
-## RUN THIS TO CREATE/UPDATE speedtest_servers table
-## UNCOMMENT LINE BELOW TO RUN
-# createServerTable()
 
 for sponsor in sponsors:
 	sponsor_string = sponsor.get('sponsor_string')

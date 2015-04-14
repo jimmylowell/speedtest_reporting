@@ -3,7 +3,7 @@ import codecs
 import psycopg2
 import sys
 from requests import session
-from configs import pg_config
+from config_file import pg_config
 
 pg_host = pg_config.get('pg_host')
 pg_database = pg_config.get('pg_database')
@@ -73,12 +73,12 @@ def createServerTable():
 		print "ERROR"
 		dropServerTable()
 		cur.execute(create_cmd)
-		con.commit()
+	con.commit()
 	parseServerXML()
 	con.close()
 
 def parseServerXML():
-	server_file = open('lib/speedtest_servers.xml', 'r')
+	server_file = open('speedtest_servers.xml', 'r')
 	tree = ET.parse(server_file)	
 	root = tree.getroot()
 	for server in root.iter('server'):
@@ -107,3 +107,6 @@ def parseServerXML():
 			print cur.statusmessage
 			con.close()
 			print "ERROR"
+			
+if __name__ == "__main__":
+	createServerTable()
