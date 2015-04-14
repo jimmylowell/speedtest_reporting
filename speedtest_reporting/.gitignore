@@ -3,7 +3,5 @@
 /olap/
 .project
 .pydevproject
-/tsv/*
-/logs/*
 *pyc
 config_file.py
