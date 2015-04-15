@@ -1,8 +1,7 @@
 import xml.etree.ElementTree as ET
-import codecs
 import psycopg2
-import sys
-from requests import session
+# import sys
+# from requests import session
 from config_file import pg_config
 
 pg_host = pg_config.get('pg_host')
