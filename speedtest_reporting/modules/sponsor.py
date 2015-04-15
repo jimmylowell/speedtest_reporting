@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from requests import session
+import errno
 import datetime
 import sys
 import os
@@ -125,7 +126,7 @@ class SpeedtestSponsor(object):
 	def downloadMissingTSVs(self, end_date_range):
 		print "FINDING MISSING TSVs"
 		tsv_dir = './tsv/' + self.simple_name + '/'
-		print tsv_dir
+# 		print tsv_dir
 		try:
 			tsvs = glob.glob('./tsv/' + self.simple_name + '/' + "web_browser*.tsv")
 			tsvs.sort(reverse=True)

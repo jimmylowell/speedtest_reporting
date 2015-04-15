@@ -6,8 +6,19 @@ and/or parse TSVs from reporting.speedtest.net
 
 Overview
 ========
-1. Generate "speedtest_servers" table
+Generate "speedtest_servers" table
 
-	python makeservertable.py
+    python makeservertable.py
+    
+Copy config_file-sample.py to config_file.py and fill out
 
-Requires python requests and PostGIS for PostgreSQL import
+    cp config_file-sample.py config_file.py
+    
+Run to download and/or parse TSVs
+
+    python pyspeed.py
+
+Requirements
+============
+Python Requests 
+PostGIS for PostgreSQL import
