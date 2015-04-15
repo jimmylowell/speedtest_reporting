@@ -20,5 +20,6 @@ Run to download and/or parse TSVs
 
 Requirements
 ============
-Python Requests 
+Python Requests
+
 PostGIS for PostgreSQL import
